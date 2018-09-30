@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RetiCar.ManageCustomerController">
+   <children>
+      <Label layoutX="286.0" layoutY="32.0" text="Manage Customers">
+         <font>
+            <Font size="80.0" />
+         </font>
+      </Label>
+      <ListView fx:id="_listView" layoutX="44.0" layoutY="180.0" prefHeight="482.0" prefWidth="1169.0" />
+      <Button fx:id="_modify" layoutX="727.0" layoutY="693.0" mnemonicParsing="false" onAction="#modifyButtonPressed" prefHeight="73.0" prefWidth="249.0" text="Modify">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="_add" layoutX="273.0" layoutY="693.0" mnemonicParsing="false" onAction="#addButtonPressed" prefHeight="73.0" prefWidth="249.0" text="Add">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="_backButton" layoutX="-1.0" layoutY="77.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="73.0" prefWidth="249.0" text="&lt;Back">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

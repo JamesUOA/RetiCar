@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RetiCar.NameBlankWarningController">
+   <children>
+      <Label layoutX="114.0" layoutY="71.0" text="Name cannot" />
+      <Label layoutX="125.0" layoutY="91.0" text="be blank!" />
+      <Button fx:id="_Ok" layoutX="124.0" layoutY="125.0" mnemonicParsing="false" onAction="#okButtonPressed" prefHeight="18.0" prefWidth="50.0" text="Ok" />
+   </children>
+</AnchorPane>

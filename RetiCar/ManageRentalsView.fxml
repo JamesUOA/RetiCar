@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RetiCar.ManageRentalsController">
+   <children>
+      <Label layoutX="379.0" layoutY="47.0" text="Manage Rentals">
+         <font>
+            <Font size="80.0" />
+         </font>
+      </Label>
+      <ListView fx:id="_listView" layoutX="44.0" layoutY="180.0" prefHeight="482.0" prefWidth="1193.0" />
+      <Button fx:id="_searchButton" layoutX="544.0" layoutY="693.0" mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="73.0" prefWidth="249.0" text="Search">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="_addButton" layoutX="131.0" layoutY="693.0" mnemonicParsing="false" onAction="#addButtonPressed" prefHeight="73.0" prefWidth="249.0" text="Add">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="_delete" layoutX="930.0" layoutY="693.0" mnemonicParsing="false" onAction="#deleteButtonPressed" prefHeight="73.0" prefWidth="249.0" text="Delete">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="_backButton" layoutX="-1.0" layoutY="77.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="73.0" prefWidth="249.0" text="&lt;Back">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="1090.0" layoutY="100.0" minHeight="16.0" mnemonicParsing="false" onAction="#clearSearchPressed" prefHeight="37.0" prefWidth="161.0" text="Clear Search">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
