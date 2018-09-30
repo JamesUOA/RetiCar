@@ -9,6 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
@@ -19,7 +22,7 @@ import java.util.ResourceBundle;
 public class ManageRentalsController implements Initializable {
 
     @FXML
-    private ListView<String> _listView;
+    private TableView _tableView;
 
     @FXML
     private Button _backButton;
@@ -33,13 +36,63 @@ public class ManageRentalsController implements Initializable {
     @FXML
     private Button _searchButton;
 
+    private ObservableList data;
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    data = FXCollections.observableArrayList();
+    setUpTable();
+    }
 
-        _listView.getItems().addAll("Jackie Chan: Nissan 350z", "Elon Musk: Tesla Model X", "Jimmy Gao: Nissan GTR","Andrew Hu: Hu wagon","Casey Wong: Yeet Machine","Fred Dagg: Nissan 370z");
+    public void setUpTable(){
+        _tableView.setEditable(true);
+        TableColumn customer = new TableColumn("Customer");
+        customer.setMinWidth(200);
+        TableColumn car = new TableColumn("Car");
+        car.setMinWidth(200);
+        TableColumn startDate = new TableColumn("StartDate");
+        startDate.setMinWidth(200);
+        TableColumn endDate = new TableColumn("EndDate");
+        endDate.setMinWidth(200);
+        TableColumn rate = new TableColumn("Rate");
+        rate.setMinWidth(200);
+        _tableView.getColumns().addAll(customer, car, startDate,endDate,rate);
 
+
+        resetData();
+
+        customer.setCellValueFactory(
+                new PropertyValueFactory<Customer,String>("Customer")
+        );
+        car.setCellValueFactory(
+                new PropertyValueFactory<Customer,String>("Car")
+        );
+        endDate.setCellValueFactory(
+                new PropertyValueFactory<Customer,String>("EndDate")
+        );
+        startDate.setCellValueFactory(
+                new PropertyValueFactory<Customer,String>("StartDate")
+        );
+        rate.setCellValueFactory(
+                new PropertyValueFactory<Customer,String>("Rate")
+        );
+
+        _tableView.setItems(data);
+
+    }
+
+    public void resetData(){
+        data.clear();
+        data.addAll(
+                new Rental("Jackie Chan", "Nissan 350z", "10/9/18","11/9/18","$200"),
+                new Rental("Elon Musk", "Tesla Model X", "10/10/18","15/10/18","$250"),
+                new Rental("Jimmy Gao", "Nissan GTR R35", "10/9/18","11/9/18","$400"),
+                new Rental("Andrew Hu", "Hu Wagon", "10/9/18","11/9/18","$200"),
+                new Rental("Casey Wong", "Yeet Machine", "10/9/18","11/9/18","$200"),
+                new Rental("Fred Dagg", "Nissan 370z", "10/9/18","11/9/18","$200")
+        );
     }
 
     public void deleteButtonPressed(){
@@ -98,23 +151,26 @@ public class ManageRentalsController implements Initializable {
     }
 
     public void clearSearchPressed(){
-        _listView.getItems().clear();
-        _listView.getItems().addAll("Jackie Chan: Nissan 350z", "Elon Musk: Tesla Model X", "Jimmy Gao: Nissan GTR","Andrew Hu: Hu wagon","Casey Wong: Yeet Machine","Fred Dagg: Nissan 370z");
+        resetData();
     }
 
     public void addElement(){
 
-        _listView.getItems().add("Bill Gates:Toyota Supra");
+        data.add(new Rental("Bill Gates", "Toyota Supra", "10/9/18","11/9/18","$400"));
 
     }
 
     public void searchNissan(){
-        _listView.getItems().clear();
-        _listView.getItems().addAll("Jackie Chan: Nissan 350z", "Jimmy Gao: Nissan GTR","Fred Dagg: Nissan 370z");
+        data.clear();
+        data.addAll(new Rental("Jackie Chan", "Nissan 350z", "10/9/18","11/9/18","$200"),
+                new Rental("Fred Dagg", "Nissan 370z", "10/9/18","11/9/18","$200"),
+                new Rental("Jimmy Gao", "Nissan GTR R35", "10/9/18","11/9/18","$400"));
     }
 
     public void deleteElement(){
-        _listView.getItems().remove(_listView.getSelectionModel().getSelectedItem());
+        if(_tableView.getSelectionModel().getSelectedIndex()!=-1) {
+            data.remove(_tableView.getSelectionModel().getSelectedIndex());
+        }
     }
 
 
